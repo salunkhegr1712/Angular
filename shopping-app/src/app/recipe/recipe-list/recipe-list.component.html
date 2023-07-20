@@ -1,0 +1,30 @@
+
+<div class="row">
+
+      <div class="col-xs-12">
+            <button class="btn-success btn btn-lg"> Add New Recipe</button>
+      </div>
+</div>
+<br> <hr size="2"> <br>
+<div class="row"> 
+
+      <div (click)="func($event)"  class="col-xs-12" *ngFor="let i of recipes;let k=index" [id]="k" >
+            <a [id]="k" href="#" class="list-group-item clearfix" style="border: solid 1px grey; margin: auto;text-align: center"
+            >
+
+                  <div [id]="k" style="display:inline-block;width: 60%;">
+                        <br>
+                        <h4 [id]="k">{{i.name}}</h4>
+                        <p [id]="k">{{i.description.slice(0,35)+"...."}}</p>
+                  </div> &nbsp;&nbsp;&nbsp;
+                  <div [id]="k" style="display:inline-block;width: 20%;padding-bottom: 5%;">
+                        <img [id]="k" width="90%" [src]="i.img" alt="img" style="margin: auto;align-items: center;">
+                  </div>
+                  <br>
+            </a>
+            <br>
+      </div>  
+      
+      
+</div>
+

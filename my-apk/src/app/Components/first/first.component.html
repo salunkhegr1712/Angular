@@ -1,0 +1,79 @@
+<p>first works!</p>
+
+<!-- the string interpolation is used here  -->
+<!-- in this the data of any type will grt converted into string  -->
+
+<h2>Mis is : {{mis}} and name is : {{name}} 10 + 20 : {{10+20}}</h2>
+
+
+<br> <br>
+<h1>{{status}}</h1>
+<!-- for event we have to use () after function else it will not work  -->
+<button [className]="classes" [disabled]="isdisabled" (click)="OnClickEventFunction($event)">Click me</button>
+
+<br> <br>
+<!-- now we are going to create the two input and see how one way and two way data binding works here  -->
+
+<!-- this is one way binded input  -->
+<input (input)="InputListener($event)">
+<br> <br>
+
+<!-- this is two data binded input  -->
+<input [(ngModel)]="value">
+<br> <br>
+<h1>{{value}}</h1>
+
+<br> <br>
+
+<!-- here we used ng style to give background color to ng -->
+<h1 [ngStyle]="{backgroundColor:'red'}">Assignment on Data Binding</h1>
+<br> 
+<input (input)="someFunc()" [(ngModel)]="username">
+<br> 
+<h2>username is : {{username}}</h2> 
+<br> 
+<button [disabled]="btn" (click)="buttonClicked()" [className]="classes">Click Here</button>
+<br>
+<!-- now we are going to try the ngIf with else block also  -->
+<!-- so lets also use the ngStyle to provide styling  -->
+<p *ngIf="!btn; else elseBlock" >button is enabled</p>
+<ng-template #elseBlock > button is disabled</ng-template>
+
+
+<!-- so ng if is a structural directive and it is used inorder to map some thing  -->
+<!-- we have to use * before using ngIf or ngFor and such more structural directives  -->
+<p *ngIf="!btn"> 
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quas autem rerum obcaecati molestiae corrupti, 
+      debitis placeat ea rem consequuntur dignissimos recusandae sed itaque, animi quo dolorem similique porro. Dignissimos.
+</p>
+
+
+
+so here we are going
+<div>
+
+      
+<h1 [ngClass]="{first:true}">khd sfkhnfds</h1>
+<p  [ngClass]="{first:false}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione autem ullam quam quasi aliquam totam 
+      hic ab dolores magnam. Quia eum omnis, consectetur magnam ullam officiis. Voluptatum repellendus quod recusandae?</p>
+</div>
+
+
+<div>
+      <table>
+            <thead>
+                  <th>Sr.No</th>
+                  <th>Mis</th>
+                  <th>Division</th>
+                  <th>Name</th>
+            </thead>
+            <tbody>
+                  <tr *ngFor="let i of data;index as ind">
+                        <th>{{ind}}</th>
+                        <td>{{i.mis}}</td>
+                        <td>{{i.div}}</td>
+                        <td>{{i.name}}</td>
+                  </tr>
+            </tbody>
+      </table>
+</div>
