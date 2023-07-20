@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-data-binding-concepts';
+  serverElements :any= [];
+
+  addServerFunction(m:any){
+    console.log(m)
+    this.serverElements.push(m)
+
+  }
+  
 }
