@@ -1,9 +1,9 @@
 <div class="container">
-  <app-testserver (newEvent)="addServerFunction($event)"></app-testserver>
+  <app-testserver (newEvent)="addServerFunction($event)">hello from parent component to testserver</app-testserver>
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-blueprint [serverElements]="serverElements"></app-blueprint>
+      <app-blueprint [serverElements]="serverElements">hello from parent component to blueprint</app-blueprint>
     </div>
   </div>
 </div>

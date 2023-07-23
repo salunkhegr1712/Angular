@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-testserver',
@@ -8,26 +8,42 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class TestserverComponent {
 
   @Output() newEvent:EventEmitter<any>=new EventEmitter() 
-  newServerName = '';
-  newServerContent = '';
+  // newServerContent = '';
 
-  onAddServer() {
-    console.log("onaddserver")
+  // this is one way 
+  // that to access the local identifier using event handler function 
+  // but there exist another way 
+
+  @ViewChild("serverContent", { static: true })
+  serverContentData!: ElementRef;
+
+  constructor(){
+    
+  }
+  onAddServer(serverName:any) {
+    console.log(this.serverContentData.nativeElement.value)
+    // console.log(serverName,serverContent)
+
     let m:any={
+
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverName.value,
+      content: this.serverContentData.nativeElement.value
     }
     this.newEvent.emit(m)
   
   }
 
-  onAddBlueprint() {
-    console.log("onaddblueprint")
+  onAddBlueprint(serverName:any) {
+    
+    console.log(this.serverContentData.nativeElement.value)
+    // console.log(serverName,serverContent)
+
     let m:any={
+
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverName.value,
+      content: this.serverContentData.nativeElement.value
     }
     this.newEvent.emit(m)
   }
